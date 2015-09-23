@@ -6,12 +6,15 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import edu.starterkit.dao.BookDao;
+import edu.starterkit.dao.annotations.BookDaoHibernate;
+import edu.starterkit.dao.annotations.BookDaoRegular;
 import edu.starterkit.service.BookService;
 import edu.starterkit.to.BookTo;
 
 public class BookServiceImpl implements BookService {
 
 	@Inject
+	@BookDaoHibernate
 	private BookDao bookDao;
 
 	@Override

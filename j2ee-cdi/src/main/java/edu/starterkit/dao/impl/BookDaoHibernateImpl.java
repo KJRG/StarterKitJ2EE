@@ -7,24 +7,22 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 
 import edu.starterkit.aop.NullableId;
 import edu.starterkit.common.Sequence;
 import edu.starterkit.dao.BookDao;
-import edu.starterkit.dao.annotations.BookDaoRegular;
+import edu.starterkit.dao.annotations.BookDaoHibernate;
 import edu.starterkit.to.BookTo;
 
-@BookDaoRegular
-public class BookDaoImpl implements BookDao {
-
+@BookDaoHibernate
+public class BookDaoHibernateImpl implements BookDao {
+	
 	private final Set<BookTo> ALL_BOOKS = new HashSet<>();
 
 	private Sequence sequence;
 
 	@Override
 	public List<BookTo> findAll() {
-		// System.out.println("findAll");
 		return new ArrayList<>(ALL_BOOKS);
 	}
 
@@ -52,7 +50,7 @@ public class BookDaoImpl implements BookDao {
 	public void setSequence(Sequence sequence) {
 		this.sequence = sequence;
 	}
-
+	
 	@PostConstruct
 	private void addTestBooks() {
 		ALL_BOOKS.add(new BookTo(1L, "Romeo i Julia", "Wiliam Szekspir"));
