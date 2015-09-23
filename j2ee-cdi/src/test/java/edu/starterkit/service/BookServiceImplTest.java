@@ -42,7 +42,6 @@ public class BookServiceImplTest {
     }
 
     @Test
-    @Ignore
     public void testShouldFindAllBooksByTitle() {
         // given
         final String title = "Opium w rosole";
