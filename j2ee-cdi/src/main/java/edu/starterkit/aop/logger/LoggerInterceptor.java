@@ -16,7 +16,7 @@ public class LoggerInterceptor {
 		/*
 		 * Print the called method.
 		 */
-		System.out.println("Called method:\n" + context.getMethod().getName().toString());
+		System.out.println("Called method:\n" + context.getMethod().getName());
 		
 		/*
 		 * Print called method parameters.
