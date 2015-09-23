@@ -8,6 +8,9 @@ import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.enterprise.event.Event;
+import javax.enterprise.inject.Any;
+import javax.inject.Inject;
 
 import edu.starterkit.aop.NullableId;
 import edu.starterkit.common.Sequence;
@@ -21,6 +24,10 @@ public class BookDaoImpl implements BookDao {
 	private final Set<BookTo> ALL_BOOKS = new HashSet<>();
 
 	private Sequence sequence;
+	
+	@Inject
+	@Any
+	Event<BookTo> bookToEvent;
 
 	@Override
 	public List<BookTo> findAll() {
@@ -46,6 +53,9 @@ public class BookDaoImpl implements BookDao {
 			book.setId(sequence.nextValue(ALL_BOOKS));
 		}
 		ALL_BOOKS.add(book);
+		
+		bookToEvent.fire(book);
+		
 		return book;
 	}
 

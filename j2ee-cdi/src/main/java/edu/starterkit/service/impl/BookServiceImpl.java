@@ -16,7 +16,7 @@ import edu.starterkit.to.BookTo;
 public class BookServiceImpl implements BookService {
 
 	@Inject
-	@BookDaoHibernate
+	@BookDaoRegular
 	private BookDao bookDao;
 
 	@Override
