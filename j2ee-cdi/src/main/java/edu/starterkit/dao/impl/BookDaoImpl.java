@@ -20,10 +20,6 @@ public class BookDaoImpl implements BookDao {
 
 	private Sequence sequence;
 
-	public BookDaoImpl() {
-		addTestBooks();
-	}
-
 	@Override
 	public List<BookTo> findAll() {
 		// System.out.println("findAll");
@@ -55,6 +51,7 @@ public class BookDaoImpl implements BookDao {
 		this.sequence = sequence;
 	}
 
+	@PostConstruct
 	private void addTestBooks() {
 		ALL_BOOKS.add(new BookTo(1L, "Romeo i Julia", "Wiliam Szekspir"));
 		ALL_BOOKS.add(new BookTo(2L, "Opium w rosole", "Hanna Ożogowska"));
