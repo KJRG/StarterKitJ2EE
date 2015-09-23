@@ -5,12 +5,14 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import edu.starterkit.aop.logger.Logged;
 import edu.starterkit.dao.BookDao;
 import edu.starterkit.dao.annotations.BookDaoHibernate;
 import edu.starterkit.dao.annotations.BookDaoRegular;
 import edu.starterkit.service.BookService;
 import edu.starterkit.to.BookTo;
 
+@Logged
 public class BookServiceImpl implements BookService {
 
 	@Inject
