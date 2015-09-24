@@ -54,6 +54,9 @@ public class BookDaoImpl implements BookDao {
 		}
 		ALL_BOOKS.add(book);
 		
+		if(bookToEvent == null) {
+			System.out.println("\n\nERROR\n\n");
+		}
 		bookToEvent.fire(book);
 		
 		return book;
