@@ -1,7 +1,5 @@
 package edu.starterkit.dao;
 
-import static org.junit.Assert.*;
-
 import javax.inject.Inject;
 
 import org.jglue.cdiunit.AdditionalClasses;
