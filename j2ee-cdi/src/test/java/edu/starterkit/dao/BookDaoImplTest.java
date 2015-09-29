@@ -17,9 +17,6 @@ import edu.starterkit.to.BookTo;
 public class BookDaoImplTest {
 
 	@Inject
-	private BooksObserver observer;
-	
-	@Inject
 	@BookDaoRegular
 	private BookDao bookDao;
 	
